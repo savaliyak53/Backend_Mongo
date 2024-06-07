@@ -18,3 +18,12 @@ module.exports.signupUser = async (params) => {
     throw error;
   }
 };
+
+module.exports.getUsers = async (query) => {
+  try {
+    let users = await userDao.getUser(query);
+    return users;
+  } catch (error) {
+    throw error;
+  }
+};

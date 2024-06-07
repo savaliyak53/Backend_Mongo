@@ -9,3 +9,13 @@ module.exports.signupUser = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.getUser = async (req, res, next) => {
+  try {
+    const query = req.query;
+    const result = await userService.getUsers(query);
+    return res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
